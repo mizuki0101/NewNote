@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NewNote</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="header">
+    <div class="menu">
+      <% if user_signed_in? %>
+        <%= link_to current_user.nickname, root_path, method: :get, class: "menu__name" %>
+        <div class="menu__icon">
+          <div class="menu__icon--cog">
+            <%= link_to new_note_path, method: :get do %>
+              <i class="fas fa-comment"></i>
+            <% end %>
+          </div>
+          <div class="menu__icon--plus">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-door-open"></i>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to "ゲスト", root_path, method: :get, class: "menu__name" %>
+         <div class="menu__icon">
+          <div class="menu__icon--cog">
+            <%= link_to new_user_session_path do %>
+              <i class="fas fa-plus"></i>
+            <% end %>
+          </div>
+          <div class="menu__icon--plus">
+            <%= link_to new_user_registration_path do %>
+              <i class="fas fa-door-closed"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+    <div class="search">
+      <form>
+        <input type="text" class="search__text-field">
+        <button type="submit" class="search__submit" href="/notes/new" >search</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="left-content">
+    <div class="memos">
+      <div class="memo">
+        <%= link_to "#", method: :get do %>
+        <div class="memo__title">
+          aaaaa
+        </div>
+        <% end %>
+        <div class="memo__text">
+          まず初めにDB設計から
+        </div>
+        <div class="memo__tag">
+          アプリ
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-content">
+    <div class="posts">
+    <%= yield %>
+  </div>
+    </div>
+  </body>
+</html>

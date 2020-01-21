@@ -1,0 +1,11 @@
+  <div class="post">
+    <div class="post__title">
+      <%= link_to note.title, note_path(note.id), class: "post__title--btn", method: :get %>
+    </div>
+    <div class="post__user-name">
+      <%= link_to note.user.nickname, user_path(note.user), class: "post__user-name--btn" %>  
+    </div>
+    <div class="post__date"> 
+      <%= note.created_at %>  
+    </div>
+  </div>

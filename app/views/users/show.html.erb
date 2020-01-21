@@ -1,0 +1,7 @@
+<div class="postTitle">
+  <%= @user.nickname %>さんの投稿一覧
+</div>
+<% @notes.each do |note| %>    
+  <%= render partial: "notes/note", locals: { note: note } %>
+<% end %>
+<%= paginate(@notes) %>
