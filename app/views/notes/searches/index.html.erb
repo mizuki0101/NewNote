@@ -3,6 +3,6 @@
   <%= form.submit "検索", class: "search__submit" %>
 <% end %>
 <% @notes.each do |note| %>
-   <%= render partial: "note", locals: { note: note } %>
+   <%= render partial: "notes/note", locals: { note: note } %>
 <% end %>
-<%= paginate(@notes) %>
+

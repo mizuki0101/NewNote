@@ -16,6 +16,8 @@ class NotesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @note.comments.includes(:user)
   end
 
   def edit  

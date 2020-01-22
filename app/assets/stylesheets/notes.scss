@@ -41,14 +41,14 @@ body {
   justify-content: space-between;
   top: 0;
   left: 0;
-  background-color: #09194F;
+  background-color: #F9CE00;
   align-items: center;
   padding: 0 20px;
   
   &__name {
     font-size: 20px;
     text-decoration: none;
-    color: #ffffff;
+    color: #09194F;
     padding-left: 10px;
   }
   
@@ -63,13 +63,13 @@ body {
     
     &--cog {
       i {
-      color: #ffffff;
+      color: #09194F;
       text-decoration: none;
       }
     }
     &--plus {
       i {
-      color: #ffffff;
+      color: #09194F;
       padding-left: 10px;
       }
     }
