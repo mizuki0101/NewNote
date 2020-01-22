@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'kaminari'
+gem 'pry-rails'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'

@@ -16,6 +16,8 @@ class NotesController < ApplicationController
   end
 
   def show
+    # @user = User.find(1)
+    # NoteMailer.send_when_update(@user).deliver
     @comment = Comment.new
     @comments = @note.comments.includes(:user)
   end
@@ -34,6 +36,8 @@ class NotesController < ApplicationController
     note.destroy
     redirect_to root_path
   end
+
+  
 
   private
 

@@ -10,4 +10,5 @@ class Note < ApplicationRecord
       Note.all
     end
   end
+
 end

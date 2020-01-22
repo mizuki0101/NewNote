@@ -5,4 +5,7 @@
 <% @notes.each do |note| %>
    <%= render partial: "note", locals: { note: note } %>
 <% end %>
+
 <%= paginate(@notes) %>
+
+
