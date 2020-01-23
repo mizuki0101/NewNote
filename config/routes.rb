@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :notes, except: :index do
     resources :comments, only: :create
+    resources :tags, only: [:index, :create]
   end
   resources :users, only: :show
 end
