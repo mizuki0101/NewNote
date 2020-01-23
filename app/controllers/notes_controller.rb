@@ -8,6 +8,7 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
+    @tag = Tag.new
   end
 
   def create
@@ -42,7 +43,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :content).merge(user_id: current_user.id)
+    params.require(:note).permit(:title, :content, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_note
