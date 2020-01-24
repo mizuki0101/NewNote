@@ -1,0 +1,5 @@
+$("<%= @id_name %>").html('<%= escape_javascript(render("likes/like_links", note: @note  )) %>');
+$("<%= @id_heart %>").removeClass('glyphicon-heart-empty');
+$("<%= @id_heart %>").addClass('glyphicon-heart');
+
+

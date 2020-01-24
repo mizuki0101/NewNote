@@ -14,7 +14,7 @@
 <% end %>
 
 <div class="postText">
-  <%= simple_format @note.content %>
+  <%= markdown(@note.content).html_safe %>
 </div>
 
 <div class="container">
@@ -38,7 +38,7 @@
         <% end %>
       <% end %>
   </div>
- >
+
 
 
   

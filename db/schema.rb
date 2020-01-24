@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_125504) do
+ActiveRecord::Schema.define(version: 2020_01_24_035510) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_01_22_125504) do
     t.datetime "updated_at", null: false
     t.index ["note_id"], name: "index_comments_on_note_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "note_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_likes_on_note_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_01_22_125504) do
 
   add_foreign_key "comments", "notes"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "notes"
+  add_foreign_key "likes", "users"
   add_foreign_key "tag_notes", "notes"
   add_foreign_key "tag_notes", "tags"
 end

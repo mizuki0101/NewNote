@@ -75,29 +75,29 @@ body {
   }
 }
 
-.search {
-  height: 50px;
-  width: 700px;
-  padding: 10px;
-  background-color: #09194F;
+// .search {
+//   height: 50px;
+//   width: 700px;
+//   padding: 10px;
+//   background-color: #09194F;
   
 
-  &__text-field {
-    height: 30px;
-    font-size: 16px;
-    padding: 5px;
-    width: calc(100% - 100px);
-    float: left;
-  }
+//   &__text-field {
+//     height: 30px;
+//     font-size: 16px;
+//     padding: 5px;
+//     width: calc(100% - 100px);
+//     float: left;
+//   }
 
-  &__submit {
-    height: 30px;
-    width: 60px;
-    float: left;
-    margin-left: 10px;
-    font-size: 16px;
-  }
-}
+//   &__submit {
+//     height: 30px;
+//     width: 60px;
+//     float: left;
+//     margin-left: 10px;
+//     font-size: 16px;
+//   }
+// }
 
 .left-content {
   height: calc(100% - 50px);
@@ -150,40 +150,40 @@ body {
   overflow: scroll;
 }
 
-.post {
-  background-color: #FDFDEB;
-  margin-bottom: 10px;
-  padding: 10px;
-  color: #444;
-  border-radius: 3px;
-  text-align: right;
-  border-bottom: medium solid #333;
+// .post {
+//   background-color: #FDFDEB;
+//   margin-bottom: 10px;
+//   padding: 10px;
+//   color: #444;
+//   border-radius: 3px;
+//   text-align: right;
+//   border-bottom: medium solid #333;
 
-  &__title {
-    width: 100%;
-    text-align: left;
-    &--btn{
-      color: #444;
-      text-decoration: none;
-    }
-  }
+//   &__title {
+//     width: 100%;
+//     text-align: left;
+//     &--btn{
+//       color: #444;
+//       text-decoration: none;
+//     }
+//   }
 
-  &__user-name {
-    font-size: 12px;
-    margin-right: 10px;
-    display: inline-block;
-    &--btn {
-      color: #444;
-      text-decoration: none;
-    }
+//   &__user-name {
+//     font-size: 12px;
+//     margin-right: 10px;
+//     display: inline-block;
+//     &--btn {
+//       color: #444;
+//       text-decoration: none;
+//     }
 
-  }
+//   }
 
-  &__date {
-    font-size: 12px;
-    display: inline-block;
-  }
-}
+//   &__date {
+//     font-size: 12px;
+//     display: inline-block;
+//   }
+// }
 
 .right-bar {
   background-color: #00818A;

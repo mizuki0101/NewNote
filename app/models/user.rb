@@ -6,4 +6,6 @@ class User < ApplicationRecord
   
   has_many :notes
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :like_notes, through: :likes, source: :note
 end
