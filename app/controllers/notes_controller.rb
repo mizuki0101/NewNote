@@ -21,6 +21,7 @@ class NotesController < ApplicationController
   def show
     # @user = User.find(1)
     # NoteMailer.send_when_update(@user).deliver
+    @tags = Tag.all
     @comment = Comment.new
     @comments = @note.comments.includes(:user)
   end
