@@ -1,10 +1,16 @@
+ 
   <div class="post shadow p-3 mb-5 bg-light rounded">
     <div class="post__title">
-      <%= link_to note.title, note_path(note.id), class: "post__title--btn", method: :get %>
+      <%= link_to note.title, note_path(note.id), class: "post__title--btn h1", method: :get %>
     </div>
-    <div class="note__tag">
-      <%= link_to note.tags.name, user_path(note.user) %> 
+    <div class="label label-warning">
+    <% note.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag.id), class: "label label-warning" %> 
+    <% end %>
+
+    <%= render 'likes/like_links', note: note, calss: "float-right h3"%>
     </div>
+
     <div class="post__user-name">
       <%= link_to note.user.nickname, user_path(note.user), class: "post__user-name--btn" %>  
     </div>

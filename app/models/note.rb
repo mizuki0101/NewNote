@@ -3,7 +3,9 @@ class Note < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :tag_notes
-  has_many  :tags,  through:  :tag_notes
+  has_many :tags,  through:  :tag_notes
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
 
   def self.search(search)
     if search

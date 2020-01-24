@@ -4,7 +4,6 @@ class NotesController < ApplicationController
 
   def index
     @notes = Note.includes(:user).order("created_at DESC").page(params[:page]).per(10)
-    @tags = Tag.all
   end
 
   def new
