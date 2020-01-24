@@ -45,22 +45,18 @@
   </div>
 
   <div class="left-content">
+    <% @tags.each do |tag| %>
     <div class="memos">
       <div class="memo">
-        <%= link_to "#", method: :get do %>
-        <div class="memo__title">
-          aaaaa
-        </div>
-        <% end %>
-        <div class="memo__text">
-          まず初めにDB設計から
-        </div>
-        <div class="memo__tag">
-          アプリ
-        </div>
+        <%= link_to tag.name, "#", method: :get  %>
       </div>
     </div>
+    <% end %>
   </div>
+
+  <div class="right-bar">
+  </div>
+
   <div class="right-content">
     <div class="posts">
     <%= yield %>

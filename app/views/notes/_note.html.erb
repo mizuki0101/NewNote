@@ -2,6 +2,9 @@
     <div class="post__title">
       <%= link_to note.title, note_path(note.id), class: "post__title--btn", method: :get %>
     </div>
+    <div class="note__tag">
+      <%= link_to note.tags.name, user_path(note.user) %> 
+    </div>
     <div class="post__user-name">
       <%= link_to note.user.nickname, user_path(note.user), class: "post__user-name--btn" %>  
     </div>
