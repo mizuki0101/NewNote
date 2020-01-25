@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @notes = Note.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    @notes = Note.includes(user: :comments).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def new

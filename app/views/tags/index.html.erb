@@ -3,5 +3,8 @@
       <div class="memo">
         <%= link_to tag.name, tag_path(tag), method: :get  %>
       </div>
+    <div class="tag-count">
+      <%= tag.notes.count %>
+    </div>
     </div>
     <% end %>

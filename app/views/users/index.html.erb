@@ -1,0 +1,10 @@
+ <% @users.each do |user| %>
+    <div class="memos">
+      <div class="memo">
+        <%= link_to user.nickname, user_path(user), method: :get  %>
+      </div>
+    <div class="tag-count">
+      <%= user.notes.count %>
+    </div>
+    </div>
+    <% end %>
