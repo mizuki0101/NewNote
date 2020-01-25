@@ -14,7 +14,8 @@
   <div class="header">
     <div class="menu">
       <% if user_signed_in? %>
-        <%= link_to current_user.nickname, root_path, method: :get, class: "menu__name" %>
+        <%= link_to NewNote, root_path, method: :get, class: "menu__name" %>
+        <%= link_to current_user.nickname, user_path(current_user), method: :get, class: "menu__name" %>
         <div class="menu__icon">
           <div class="menu__icon--cog">
             <%= link_to new_note_path, method: :get do %>
@@ -43,10 +44,11 @@
         </div>
       <% end %>
       <%= button_to 'tag一覧',tags_path , method: :get,  class: "btn-outline-secondary" %>
+      <%= button_to 'user一覧',users_path , method: :get,  class: "btn-outline-secondary" %>
     </div>
       <%= form_with(url: notes_searches_path, local: true, method: :get, class: "form-inline") do |form| %>
-        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "form-control form-control-sm ml-3 w-75 mx-auto " %>
-        <%= form.submit "検索", class: "btn btn-outline-dark my-2 my-sm-0 " %>
+        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "form-control form-control-sm ml-3 w-75 mx-4 " %>
+        <%= form.submit "検索", class: "btn-search btn-outline-dark my-2 my-sm-0 " %>
       <% end %>
   </div>
 

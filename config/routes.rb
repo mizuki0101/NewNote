@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :tags, only: [:index, :create, :show]
-  resources :users, only: :show
+  resources :users, only: [:show, :index]
 
   post   '/like/:note_id' => 'likes#like',   as: 'like'
   delete '/like/:note_id' => 'likes#unlike', as: 'unlike'
