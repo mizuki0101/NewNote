@@ -1,4 +1,4 @@
- 
+
   <div class="post shadow p-3 mb-5 bg-light rounded">
     <div class="post__title">
       <%= link_to note.title, note_path(note.id), class: "post__title--btn h1", method: :get %>
@@ -16,7 +16,7 @@
     </div>
     <div class="comment-count">
     <i class="far fa-comment" aria-hidden="true"></i>
-     <%= note.comments.count %>
+      <%= note.comments.count %>
     </div>
     <div class="post__date"> 
       <%= note.created_at.strftime("%Y年%m月%d日 %H時%M分") %>  

@@ -1,6 +1,9 @@
 class Notes::SearchesController < ApplicationController
   def index
     @notes = Note.search(params[:keyword])
-    @tags = Tag.all
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 end
