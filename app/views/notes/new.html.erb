@@ -2,15 +2,46 @@
 新規投稿
 </div>
 
-<%= form_with model: @note, class: :form, local: true do |form| %>
+<!--<%= form_with model: @note, class: :form, local: true do |form| %>
   <%= form.text_field :title, placeholder: :タイトル, class: :form__title %>
   <%= form.text_area :content, placeholder: :ブログ本文, class: :"form-control", rows: "50" %>
   <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
   <%= form.submit '投稿する', class: :form__btn %>
 <% end %>
+-->
+<div class='container'>
+<h1>新規投稿</h1>
+<%= form_with model: @note, class: :form, local: true do |form| %>
+<div class='form-group'>
+<%# <%= form.label :title %> 
+<%= form.text_field :title, placeholder: :タイトル, class: 'form-control', id: 'blog_title' %>
+</div>
+<%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+<div class='form-group'>
+<div id='editor'>
+<%# <%= form.label :diary %> 
+<%= form.text_area :content, placeholder: :本文, rows: 5, class: 'form-control', id: 'blog_diary', "v-model" => "input", name: "note[content]" %>
+<div v-html='input | marked'></div>
+</div>
+<%= form.submit nil, class: 'btn btn-success form_btn' %>
+</div>
+<% end %>
+
+<script type="text/javascript">
+window.onload = function() {
+new Vue({
+el: '#editor',
+data: {
+input: '<%== j @note.content %>',
+},
+filters: {
+marked: marked,
+},
+});
+};
+</script>
 
 <%= form_with(model: @tag, local: true) do |form| %>
   <%= form.text_area :name, placeholder: "tag", rows: "1" %>
   <%= form.submit "SEND" %>
 <% end %>
-
