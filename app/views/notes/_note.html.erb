@@ -1,24 +1,33 @@
 
   <div class="post shadow p-3 mb-5 bg-light rounded">
-    <div class="post__title">
-      <%= link_to note.title, note_path(note.id), class: "post__title--btn h1", method: :get %>
-    </div>
-    <div class="label label-warning">
-    <% note.tags.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag.id), class: "label label-warning" %> 
-    <% end %>
-
-
-    <div class="post__user-name">
-      <%= link_to note.user.nickname, user_path(note.user), class: "post__user-name--btn" %>  
-    </div>
-    <%= render 'likes/like_links', note: note, calss: "float-right h3"%>
-    </div>
-    <div class="comment-count">
-    <i class="far fa-comment" aria-hidden="true"></i>
-      <%= note.comments.count %>
-    </div>
-    <div class="post__date"> 
+    <p class="post__date float-right text-muted"> 
       <%= note.created_at.strftime("%Y年%m月%d日 %H時%M分") %>  
+    </p>
+    <div class="post__title">
+      <%= link_to note.title, note_path(note.id), class: "post__title--btn h1 text-dark", method: :get %>
     </div>
+  
+
+    <div class="post__user-name  list-unstyled mt-2 float-right ">
+      <ul class="post-list form-inline text-right my-0 mr-auto ml-10">
+        <li class="text-muted ">投稿者:　</li>
+        <li class="text-dark mr-3">
+        <%= link_to note.user.nickname, user_path(note.user), class: "post__user-name--btn te text-dark" %>  
+        </li>
+        <li class="comment-count m-1">
+          <i class="far fa-comment " aria-hidden="true"></i>
+          <%= note.comments.count %>
+        </li>
+        <li>
+          <%= render 'likes/like_links', note: note %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="tag mt-2">
+    <% note.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag.id), class: "label btn btn-warning" %> 
+    <% end %>
+    </div>
+
   </div>
