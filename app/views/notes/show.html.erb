@@ -34,7 +34,7 @@
     <% if current_user %>
       <%= form_with(model: [@note, @comment], local: true, class:"form-inline") do |form|%>
         <%= form.text_area :content, placeholder: "コメントする", class: "form-control form-control-sm ml-3 w-15 mx-1" %>
-        <%= form.submit "SEND" ,class: "folot-right btn-search btn-outline-dark my-2 my-sm-0"%>
+        <%= form.submit "SEND" ,class: "folot-right btn-search btn-outline-dark my-2 my-sm-0 mt-2"%>
       <% end %>
     <% else %>
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
