@@ -1,34 +1,25 @@
-<div class="postTitle">
+<div class="container">
+<div class="postTitle h1 text-center page-header card-header bg-info text-white">
   <%= @note.title %>
 </div>
-<div class="postDate">
-  <%= @note.created_at %>
+<div class="postDate float-right">
+  <%= @note.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
 </div>
 <div class="postAuthor">
 </div>
 <% if user_signed_in? && current_user.id == @note.user_id %>
-<div class="postManage">
-  <%= link_to "編集", edit_note_path(@note.id), class: "postManage__edit" %>
-  <%= link_to "削除", note_path(@note.id), method: :delete, class: "postManage__delete" %>
+<div class="postManage float-right">
+  <%= link_to "編集", edit_note_path(@note.id), class: "postManage__edit btn btn-secondary" %>
+  <%= link_to "削除", note_path(@note.id), method: :delete, class: "postManage__delete btn btn-secondary" %>
 </div>
 <% end %>
 
-<div class="postText">
+<div class="postText text-left active container mt-5 card-body card-text">
   <%= markdown(@note.content).html_safe %>
 </div>
 
-<div class="container">
-    <% if current_user %>
-      <%= form_with(model: [@note, @comment], local: true) do |form| %>
-        <%= form.text_area :content, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
-      <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-    <% end %>
-</div>
- <div class="form-group">
-      <h4>コメント一覧</h4>
+<div class="form-group text-center">
+      <h5>コメント一覧</h5>
       <% if @comments %>
         <% @comments.each do |comment| %>
           <p>
@@ -38,7 +29,17 @@
         <% end %>
       <% end %>
   </div>
-
+</div>
+<div class="container text-center ">
+    <% if current_user %>
+      <%= form_with(model: [@note, @comment], local: true, class:"form-inline") do |form|%>
+        <%= form.text_area :content, placeholder: "コメントする", class: "form-control form-control-sm ml-3 w-15 mx-1" %>
+        <%= form.submit "SEND" ,class: "folot-right btn-search btn-outline-dark my-2 my-sm-0"%>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+</div>
 
 
   

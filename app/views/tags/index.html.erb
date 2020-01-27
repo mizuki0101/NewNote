@@ -1,10 +1,14 @@
- <% @tags.each do |tag| %>
-    <div class="memos">
-      <div class="memo">
-        <%= link_to tag.name, tag_path(tag), method: :get  %>
-      </div>
-    <div class="tag-count">
+<div class="container">
+<h1>tag一覧</h1>
+
+<% @tags.each do |tag| %>
+  <div class="lists d-flex">
+    <div class="lists__name">
+      <%= link_to tag.name, tag_path(tag), method: :get, calass: "list__name--tag"  %>
+    </div>
+    <div class="lists__count">
       <%= tag.notes.count %>
     </div>
-    </div>
-    <% end %>
+  </div>
+<% end %>
+</div>
