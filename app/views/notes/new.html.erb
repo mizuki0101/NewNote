@@ -1,21 +1,23 @@
 
 <div class='container'>
-<h1>新規投稿</h1>
-<%= form_with model: @note, class: :form, local: true do |form| %>
-<div class='form-group'>
-<%# <%= form.label :title %> 
-<%= form.text_field :title, placeholder: :タイトル, class: 'form-control', id: 'blog_title' %>
+  <h1 class='new'>新規投稿</h1>
+    <div class='form-group'>
+      <%= form_with model: @note, class: :form, local: true do |form| %>
+        <%= form.text_field :title, placeholder: :タイトル, class: 'form-control', id: 'blog_title' %>
+        <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+        <div id='editor'>
+        <%= form.text_area :content, placeholder: :本文, rows: 3, class: 'form-control', id: 'blog_diary', "v-model" => "input", name: "note[content]" %>
+        <div v-html='input | marked'></div>
+        <%= form.submit nil, class: 'btn btn-outline-secondary form_btn mt-2 create' %>
+      <% end %>
+    </div>
+    <div class='form-group'>
+      <%= form_with(model: @tag, local: true) do |form| %>
+        <%= form.text_area :name, placeholder: "tagの追加", rows: "1",class: 'tagname form-control' %>
+          <%= form.submit "追加",class: 'send form-control btn btn-outline-secondary form_btn' %>
+      <% end %>
+    </div>
 </div>
-<%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
-<div class='form-group'>
-<div id='editor'>
-<%# <%= form.label :diary %> 
-<%= form.text_area :content, placeholder: :本文, rows: 5, class: 'form-control', id: 'blog_diary', "v-model" => "input", name: "note[content]" %>
-<div v-html='input | marked'></div>
-</div>
-<%= form.submit nil, class: 'btn btn-outline-secondary form_btn mt-2' %>
-</div>
-<% end %>
 
 <script type="text/javascript">
 window.onload = function() {
@@ -30,8 +32,3 @@ marked: marked,
 });
 };
 </script>
-
-<%= form_with(model: @tag, local: true) do |form| %>
-  <%= form.text_area :name, placeholder: "tag", rows: "1" %>
-  <%= form.submit "SEND" %>
-<% end %>

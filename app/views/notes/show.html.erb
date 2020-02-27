@@ -1,44 +1,42 @@
 <div class="container">
-<div class="postTitle h1 text-center page-header card-header bg-info text-white">
-  <%= @note.title %>
-</div>
-<div class="postDate float-right">
-  <%= @note.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
-</div>
-<div class="postAuthor">
-</div>
-<% if user_signed_in? && current_user.id == @note.user_id %>
-<div class="postManage float-right">
-  <%= link_to "編集", edit_note_path(@note.id), class: "postManage__edit btn btn-secondary" %>
-  <%= link_to "削除", note_path(@note.id), method: :delete, class: "postManage__delete btn btn-secondary" %>
-</div>
-<% end %>
-
-<div class="postText text-left active container mt-5 card-body card-text">
-  <%= markdown(@note.content).html_safe %>
-</div>
-
-<div class="form-group text-center">
-      <h5>コメント一覧</h5>
-      <% if @comments %>
-        <% @comments.each do |comment| %>
-          <p>
-            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-            <%= comment.content %>
-          </p>
-        <% end %>
-      <% end %>
+  <div class="show-title">
+    <%= @note.title %>
   </div>
-</div>
-<div class="container text-center ">
-    <% if current_user %>
-      <%= form_with(model: [@note, @comment], local: true, class:"form-inline") do |form|%>
-        <%= form.text_area :content, placeholder: "コメントする", class: "form-control form-control-sm ml-3 w-15 mx-1" %>
-        <%= form.submit "SEND" ,class: "folot-right btn-search btn-outline-dark my-2 my-sm-0 mt-2"%>
-      <% end %>
-    <% else %>
-      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-    <% end %>
+  <% if user_signed_in? && current_user.id == @note.user_id %>
+    <div class="postManage float-right">
+      <%= link_to "編集", edit_note_path(@note.id), class: "postManage__edit btn btn-secondary" %>
+      <%= link_to "削除", note_path(@note.id), method: :delete, class: "postManage__delete btn btn-secondary" %>
+    </div>
+  <% end %>
+  <div class="text-main-box">
+    <div class="text-left mt-5 text-main ">
+      <%= markdown(@note.content).html_safe %>
+    </div>
+  </div>
+
+  <div class="form-group text-center commentbox">
+  <%# 　<form class="form-horizontal"> %>
+      <div class="container text-center">
+        <% if current_user %>
+          <%= form_with(model: [@note, @comment], local: true, class:"form-comment") do |f|%>
+            <%= f.text_area :content, placeholder: "コメントする", class: "comment-area form-control ",rows: "1" %>
+            <%= f.submit "SEND" ,class: "send-btn form-control btn btn-outline-secondary form_btn mt-2 create center"%>
+          <% end %>
+        <% else %>
+          <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+        <% end %>
+      </div>
+      <h5>コメント一覧</h5>
+        <% if @comments %>
+          <% @comments.each do |comment| %>
+            <p class="comments-menu">
+              <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+              <%= comment.content %>
+            </p>
+          <% end %>
+        <% end %>
+    </div>
+  <%# </form> %>
 </div>
 
 

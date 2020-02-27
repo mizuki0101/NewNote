@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit]
   before_action :move_to_index, except: [:index, :show]
+  protect_from_forgery except: :update
 
   def index
     @notes = Note.includes(user: :comments).order("created_at DESC").page(params[:page]).per(10)
