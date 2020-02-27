@@ -6,7 +6,7 @@
         <%= form.text_field :title, placeholder: :タイトル, class: 'form-control', id: 'blog_title' %>
         <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
         <div id='editor'>
-        <%= form.text_area :content, placeholder: :本文, rows: 3, class: 'form-control', id: 'blog_diary', "v-model" => "input", name: "note[content]" %>
+        <%= form.text_area :content, placeholder: :本文, rows: 5, class: 'form-control', id: 'blog_diary', "v-model" => "input", name: "note[content]" %>
         <div v-html='input | marked'></div>
         <%= form.submit nil, class: 'btn btn-outline-secondary form_btn mt-2 create' %>
       <% end %>
@@ -14,7 +14,7 @@
     <div class='form-group'>
       <%= form_with(model: @tag, local: true) do |form| %>
         <%= form.text_area :name, placeholder: "tagの追加", rows: "1",class: 'tagname form-control' %>
-          <%= form.submit "追加",class: 'send form-control btn btn-outline-secondary form_btn' %>
+        <%= form.submit "追加",class: 'send form-control btn btn-outline-secondary form_btn' %>
       <% end %>
     </div>
 </div>

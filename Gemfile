@@ -64,7 +64,7 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
-gem 'bootstrap', '~> 4.1.1'
+gem "bootstrap", ">= 4.3.1"
 gem 'jquery-rails'
 gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
