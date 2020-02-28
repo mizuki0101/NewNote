@@ -1,4 +1,9 @@
 # README
+![](https://img.shields.io/badge/ruby-2.5.1-red)
+![](https://img.shields.io/badge/rails-5.2.4.1-red)
+![](https://img.shields.io/badge/jQuery-%20-blue)
+![](https://img.shields.io/badge/bootstrap-4.3.1-blue)
+![](https://img.shields.io/badge/Heroku-%20%20%20-green)
 # ツール・ライブラリの名前
  
 NewNoteというアプリで、手軽にメモを書いてみんなで共有することができるアプリです。　　
