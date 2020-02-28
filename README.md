@@ -20,6 +20,9 @@ NewNoteというアプリで、手軽にメモを書いてみんなで共有す�
 
 ## 🖥デモサイト⬇︎  
 https://newnote-app.herokuapp.com/
+テストアカウント  
+メールアドレス：　test01@gmail.com
+パスワード：　test0101
  
 投稿機能(https://gyazo.com/40713b12cf175fffcecd92b14eed9503)
  
