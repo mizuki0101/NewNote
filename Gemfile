@@ -66,5 +66,5 @@ gem 'kaminari'
 gem 'pry-rails'
 gem "bootstrap", ">= 4.3.1"
 gem 'jquery-rails'
-gem 'redcarpet', '~> 2.3.0'
+gem 'redcarpet', '~> 3.5.1'
 gem 'coderay'
